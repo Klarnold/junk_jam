@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ChatResource" load_steps=9 format=3 uid="uid://bvkeooaj7yxei"]
+
+[ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_dali0"]
+[ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_brw5p"]
+[ext_resource type="Texture2D" uid="uid://pswewnydput1" path="res://assets/alternative_person.svg" id="3_brw5p"]
+
+[sub_resource type="Resource" id="Resource_brw5p"]
+script = ExtResource("1_dali0")
+message_owner = 1
+show = true
+text = "🟦"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_ba72j"]
+script = ExtResource("1_dali0")
+message_owner = 1
+show = true
+text = "🟦"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_nglfq"]
+script = ExtResource("1_dali0")
+message_owner = 1
+show = true
+text = "🟦"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_l5y1q"]
+script = ExtResource("1_dali0")
+message_owner = 1
+show = true
+text = "🟦"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_eo2gh"]
+script = ExtResource("1_dali0")
+show = true
+text = "так как 🟦 сказал?"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[resource]
+script = ExtResource("2_brw5p")
+texture = ExtResource("3_brw5p")
+name = "Тетрисная палка"
+messages = Array[ExtResource("1_dali0")]([SubResource("Resource_brw5p"), SubResource("Resource_ba72j"), SubResource("Resource_nglfq"), SubResource("Resource_l5y1q"), SubResource("Resource_eo2gh")])
+metadata/_custom_type_script = "uid://bu81qh845kbe4"

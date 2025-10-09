@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="ChatResource" load_steps=23 format=3 uid="uid://2uhffho43fvf"]
+
+[ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_vqk1q"]
+[ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_74cgk"]
+[ext_resource type="Script" uid="uid://be1cusu71bwlp" path="res://resources/scripts/choosable_message_resource.gd" id="2_alrvi"]
+[ext_resource type="Texture2D" uid="uid://dmcroek6ugvc3" path="res://assets/basic_person.svg" id="3_74cgk"]
+
+[sub_resource type="Resource" id="Resource_alrvi"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "Здарова, бес-толочь!"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_1pxb7"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "Ты хоть сам понял, что ты высрал?"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_nkxs0"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "😭😭😭"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_jtxjb"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "Можно выбрать это"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_3s16w"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "Чтобы было это"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_acy3j"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "А потом это"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_xf4ir"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "Или вот это"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_3dsim"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "Чтобы сначал попиздела персона"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_17fyw"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "А потом уже я"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_umvt3"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "и можно"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_2is8o"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "было"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_6b1yl"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "хехех"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_m7g43"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "снова"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_ma55a"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "выбирать"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_natxa"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "ahahahah"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_nxv3j"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "ХАХААХВ"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_nwwn8"]
+script = ExtResource("2_alrvi")
+choosable_messages = Dictionary[ExtResource("1_vqk1q"), Array]({
+SubResource("Resource_umvt3"): [],
+SubResource("Resource_2is8o"): [SubResource("Resource_6b1yl")],
+SubResource("Resource_m7g43"): [],
+SubResource("Resource_ma55a"): [SubResource("Resource_natxa"), SubResource("Resource_nxv3j")]
+})
+show = true
+metadata/_custom_type_script = "uid://be1cusu71bwlp"
+
+[sub_resource type="Resource" id="Resource_7l3pq"]
+script = ExtResource("2_alrvi")
+choosable_messages = Dictionary[ExtResource("1_vqk1q"), Array]({
+SubResource("Resource_jtxjb"): [SubResource("Resource_3s16w"), SubResource("Resource_acy3j")],
+SubResource("Resource_xf4ir"): [SubResource("Resource_3dsim"), SubResource("Resource_17fyw"), SubResource("Resource_nwwn8")]
+})
+show = true
+metadata/_custom_type_script = "uid://be1cusu71bwlp"
+
+[resource]
+script = ExtResource("2_74cgk")
+texture = ExtResource("3_74cgk")
+name = "Столас"
+messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq")])
+metadata/_custom_type_script = "uid://bu81qh845kbe4"

@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc635k1yyqd12"]
+
+[ext_resource type="Script" uid="uid://du1m80ssxvti8" path="res://scripts/ui/phone_screen.gd" id="1_8put0"]
+[ext_resource type="Texture2D" uid="uid://ckrb1p0c5nm4m" path="res://assets/telephone_screen.svg" id="1_piby1"]
+[ext_resource type="Script" uid="uid://ba6xgm1loun3q" path="res://scripts/ui/DEBUG_SCROLL_SCRIPT.gd" id="2_b5ovn"]
+[ext_resource type="Texture2D" uid="uid://dnfbf5vvfi4nj" path="res://assets/messages_icon.svg" id="2_m83bn"]
+
+[node name="PhoneScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8put0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 192
+theme_override_constants/margin_right = 192
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_piby1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="TopTab" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.97
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+
+[node name="CurrentScreenScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_b5ovn")
+
+[node name="BottomTab" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomTab"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer"]
+layout_mode = 2
+
+[node name="CollectionButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_m83bn")
+stretch_mode = 5
+
+[node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_m83bn")
+stretch_mode = 5
+
+[node name="ChatsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_m83bn")
+stretch_mode = 5
+
+[node name="ProfilePageButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_m83bn")
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_m83bn")
+stretch_mode = 5
