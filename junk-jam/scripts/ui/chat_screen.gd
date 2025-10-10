@@ -5,6 +5,7 @@ signal destroy_chosen
 
 
 @export var chat_resource: ChatResource
+#@export var character_resorce: CharacterRes
 
 @onready var _person_messages: VBoxContainer = %PersonMessages
 @onready var _my_messages: VBoxContainer = %MyMessages
@@ -21,6 +22,9 @@ func prepare_and_create_message_label(message_resource: MessageResource) -> void
 	var message_label: MessageLabel = preload("res://scenes/ui/message_label.tscn").instantiate()
 	message_label.message_resource = message_resource
 	
+	chat_resource.affection += message_resource.affection_change # needs to be to concretesize affection of character
+																# and make choices to have influence
+	
 	if message_resource.message_owner == MessageLabel.MessageOwner.ME:
 		_my_messages.add_child(message_label)
 		var additional_label = message_label.duplicate()
@@ -31,6 +35,8 @@ func prepare_and_create_message_label(message_resource: MessageResource) -> void
 		var additional_label = message_label.duplicate()
 		additional_label.modulate.a = 0
 		_my_messages.add_child(additional_label)
+	
+	#if TODO check for affection????
 
 
 func prepare_and_create_choosable_message_labels(choosable_message_resources: ChoosableMessageResource) -> void:
@@ -68,10 +74,15 @@ func _on_chosen_message_label(chosen_message_res: MessageResource, choosable_mes
 	
 	destroy_chosen.emit()
 	
-	for message_resource in choosable_message_resources.choosable_messages[chosen_message_res]:
-		chat_resource.messages.append(message_resource)
+	#for message_resource in choosable_message_resources.choosable_messages[chosen_message_res]: # old version of adding messages to the screen
+		#print(message_resource)
+		#chat_resource.messages.append(message_resource)
+	for message_res_id in choosable_message_resources.choosable_messages[chosen_message_res].size(): # rework of adding messages to hte screen
+		print(message_res_id)
+		chat_resource.messages.insert(show_id + 1 + message_res_id, choosable_message_resources.choosable_messages[chosen_message_res][message_res_id])
 	_check_messages()
 
+	
 
 func _check_messages() -> void:
 	for message_res_id in range(show_id, chat_resource.messages.size()):

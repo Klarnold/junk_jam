@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ChatResource" load_steps=23 format=3 uid="uid://2uhffho43fvf"]
+[gd_resource type="Resource" script_class="ChatResource" load_steps=24 format=3 uid="uid://2uhffho43fvf"]
 
 [ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_vqk1q"]
 [ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_74cgk"]
@@ -126,9 +126,16 @@ SubResource("Resource_xf4ir"): [SubResource("Resource_3dsim"), SubResource("Reso
 show = true
 metadata/_custom_type_script = "uid://be1cusu71bwlp"
 
+[sub_resource type="Resource" id="Resource_yxs7g"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "Simple resource for me"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
 [resource]
 script = ExtResource("2_74cgk")
 texture = ExtResource("3_74cgk")
 name = "Столас"
-messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq")])
+messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq"), SubResource("Resource_yxs7g")])
 metadata/_custom_type_script = "uid://bu81qh845kbe4"

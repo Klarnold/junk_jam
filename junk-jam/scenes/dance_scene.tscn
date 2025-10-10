@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2yrvjfkqcqtm"]
+
+[ext_resource type="PackedScene" uid="uid://cw5ybdmeejf0i" path="res://scenes/dance_grid.tscn" id="1_wt4kg"]
+[ext_resource type="PackedScene" uid="uid://ctyb7odeina1w" path="res://scenes/dance_area.tscn" id="1_yk4fd"]
+
+[node name="DanceScene" type="Node2D"]
+
+[node name="DanceGrid" parent="." node_paths=PackedStringArray("dance_areas_array") instance=ExtResource("1_wt4kg")]
+position = Vector2(384, 192)
+dance_areas_array = {
+Vector2i(-1, -1): NodePath("DanceArea"),
+Vector2i(-1, 0): NodePath("DanceArea4"),
+Vector2i(-1, 1): NodePath("DanceArea7"),
+Vector2i(0, -1): NodePath("DanceArea2"),
+Vector2i(0, 0): NodePath("DanceArea5"),
+Vector2i(0, 1): NodePath("DanceArea8"),
+Vector2i(1, -1): NodePath("DanceArea3"),
+Vector2i(1, 0): NodePath("DanceArea6"),
+Vector2i(1, 1): NodePath("DanceArea9")
+}
+
+[node name="DanceArea" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+
+[node name="DanceArea2" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(96, 0)
+
+[node name="DanceArea3" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(192, 0)
+
+[node name="DanceArea4" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(0, 96)
+
+[node name="DanceArea5" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(96, 96)
+
+[node name="DanceArea6" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(192, 96)
+
+[node name="DanceArea7" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(0, 192)
+
+[node name="DanceArea8" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(96, 192)
+
+[node name="DanceArea9" parent="DanceGrid" instance=ExtResource("1_yk4fd")]
+position = Vector2(192, 192)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctyb7odeina1w"]
+
+[ext_resource type="Script" uid="uid://d0fpleib7u1xb" path="res://scripts/ui/dance_area.gd" id="1_shrti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u6p1"]
+size = Vector2(62, 62)
+
+[node name="DanceArea" type="Area2D"]
+script = ExtResource("1_shrti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5u6p1")
+debug_color = Color(4.3317677e-06, 0.6501997, 0.75997496, 0.41960785)

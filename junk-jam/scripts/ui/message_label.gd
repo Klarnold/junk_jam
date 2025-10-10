@@ -17,7 +17,7 @@ func _ready() -> void:
 	await  get_tree().process_frame
 	await  get_tree().process_frame
 	
-	print("%s --- %s" % [size.x, get_parent().size.x])
+	#print("%s --- %s" % [size.x, get_parent().size.x])
 	if message_resource.message_owner == MessageOwner.ME:
 		size_flags_horizontal = Control.SIZE_SHRINK_END
 	

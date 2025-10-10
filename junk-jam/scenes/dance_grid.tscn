@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw5ybdmeejf0i"]
+
+[ext_resource type="PackedScene" uid="uid://dryndwkg15a1a" path="res://scenes/search_area.tscn" id="1_8q1ry"]
+[ext_resource type="Script" uid="uid://ccoxtaegedhln" path="res://scripts/dance_grid.gd" id="1_iuu2d"]
+
+[node name="DanceGrid" type="Node2D"]
+script = ExtResource("1_iuu2d")
+
+[node name="SearchArea" parent="." instance=ExtResource("1_8q1ry")]
+unique_name_in_owner = true
