@@ -21,6 +21,8 @@ var hide_dance_button_tween: Tween
 
 
 func _ready() -> void:
+	chat_resource.affection_changed.connect(_on_affection_changed)
+	
 	_affection_progress_bar.value = chat_resource.affection
 	_affection_label.text = "Привязанность: %s" % chat_resource.affection
 	_person_texture.texture = chat_resource.texture
@@ -52,7 +54,9 @@ func prepare_and_create_message_label(message_resource: MessageResource) -> void
 		_show_dance_button()
 		_dance_button.dance_scene_uid = message_resource.dance_scene_uid
 		
-		_dance_button.pressed.connect(message_resource.set_deferred.bind("hide_dance_button", true)) 
+		_dance_button.pressed.connect(func() -> void:
+										message_resource.set_deferred("hide_dance_button", true)
+										chat_resource.messages[show_id].show = true) 
 	
 	if message_resource.hide_dance_button:
 		_hide_dance_button()
@@ -144,3 +148,8 @@ func _hide_dance_button() -> void:
 	_dance_button.disabled = true
 	show_dance_button_tween = get_tree().create_tween()
 	show_dance_button_tween.tween_property(_dance_button, "modulate:a", 0.0, 2.0)
+
+
+func _on_affection_changed(new_affection_value: float) -> void:
+	_affection_progress_bar.value = new_affection_value
+	_affection_label.text = "Привязанность: %s" % new_affection_value

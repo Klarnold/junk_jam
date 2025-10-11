@@ -11,7 +11,7 @@ func _ready() -> void:
 	_music_slider.value_changed.connect(_set_music_db)
 	_sound_slider.value_changed.connect(_set_sound_db)
 	
-	_exit_button.pressed.connect(queue_free)
+	_exit_button.pressed.connect(get_tree().quit)
 
 
 func _set_music_db(music_value: float) -> void:

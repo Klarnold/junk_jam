@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="ChatResource" load_steps=26 format=3 uid="uid://2uhffho43fvf"]
+[gd_resource type="Resource" script_class="ChatResource" load_steps=32 format=3 uid="uid://2uhffho43fvf"]
 
-[ext_resource type="Texture2D" uid="uid://dmcroek6ugvc3" path="res://assets/experimental/basic_person.svg" id="1_1pxb7"]
+[ext_resource type="Texture2D" uid="uid://cf13h8ikhhx7o" path="res://assets/icons/stol.png" id="1_1pxb7"]
 [ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_vqk1q"]
 [ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_74cgk"]
 [ext_resource type="Script" path="res://resources/scripts/choosable_message_resource.gd" id="2_alrvi"]
-[ext_resource type="Texture2D" uid="uid://cks6hvnrsl0n7" path="res://assets/experimental/search_area_sprite.svg" id="5_nkxs0"]
+[ext_resource type="Texture2D" uid="uid://0fq2vh7v8wwg" path="res://assets/ladies/stolas.png" id="5_nkxs0"]
 
 [sub_resource type="Resource" id="Resource_alrvi"]
 script = ExtResource("1_vqk1q")
@@ -18,6 +18,7 @@ script = ExtResource("1_vqk1q")
 message_owner = 1
 show = true
 text = "Я многого не понимаю и не решаюсь делать, но всё равно иду до конца"
+affection_change = 10.0
 metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 
 [sub_resource type="Resource" id="Resource_1pxb7"]
@@ -143,9 +144,53 @@ show_dance_button = true
 dance_scene_uid = "uid://d0gijo6b3l7fq"
 metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 
+[sub_resource type="Resource" id="Resource_lnm4c"]
+script = ExtResource("1_vqk1q")
+text = "This message must appear after winning/losing dance_scene"
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_5dxwf"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "1) option one !!!! positive"
+affection_change = 10.0
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_cdkt4"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "Hurrai positive!! !!!!  !!!   ! ! !"
+affection_change = 10.0
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_sc50y"]
+script = ExtResource("1_vqk1q")
+show = true
+text = "2) option 2 - negative((((((( ( 9("
+affection_change = -20.0
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_j3jhw"]
+script = ExtResource("1_vqk1q")
+message_owner = 1
+show = true
+text = "NONONONONONnonononono negegtivenegegtivenegegtivenegegtive"
+affection_change = -100.0
+metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
+
+[sub_resource type="Resource" id="Resource_tp2lq"]
+script = ExtResource("2_alrvi")
+choosable_messages = Dictionary[ExtResource("1_vqk1q"), Array]({
+SubResource("Resource_5dxwf"): [SubResource("Resource_cdkt4")],
+SubResource("Resource_sc50y"): [SubResource("Resource_j3jhw")]
+})
+show = true
+metadata/_custom_type_script = "uid://be1cusu71bwlp"
+
 [resource]
 script = ExtResource("2_74cgk")
 texture = ExtResource("5_nkxs0")
 icon_texture = ExtResource("1_1pxb7")
 name = "Столас"
-messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_5wu6q"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq"), SubResource("Resource_yxs7g")])
+messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_5wu6q"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq"), SubResource("Resource_yxs7g"), SubResource("Resource_lnm4c"), SubResource("Resource_tp2lq")])
