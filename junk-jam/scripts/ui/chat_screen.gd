@@ -12,15 +12,20 @@ signal destroy_chosen
 @onready var _affection_label: RichTextLabel = %AffectionLabel
 @onready var _affection_progress_bar: TextureProgressBar = %AffectionProgressBar
 @onready var _person_texture: TextureRect = %PersonTexture
+@onready var _dance_button: DanceButton = %DanceButton
 
 
 var show_id: int = 0
+var show_dance_button_tween: Tween
+var hide_dance_button_tween: Tween
 
 
 func _ready() -> void:
 	_affection_progress_bar.value = chat_resource.affection
 	_affection_label.text = "Привязанность: %s" % chat_resource.affection
 	_person_texture.texture = chat_resource.texture
+	
+	_dance_button.chat_res = chat_resource
 	
 	_check_messages()
 
@@ -43,6 +48,14 @@ func prepare_and_create_message_label(message_resource: MessageResource) -> void
 		additional_label.modulate.a = 0
 		_my_messages.add_child(additional_label)
 	
+	if message_resource.show_dance_button and not message_resource.hide_dance_button:
+		_show_dance_button()
+		_dance_button.dance_scene_uid = message_resource.dance_scene_uid
+		
+		_dance_button.pressed.connect(message_resource.set_deferred.bind("hide_dance_button", true)) 
+	
+	if message_resource.hide_dance_button:
+		_hide_dance_button()
 	#if TODO check for affection????
 
 
@@ -89,7 +102,6 @@ func _on_chosen_message_label(chosen_message_res: MessageResource, choosable_mes
 		chat_resource.messages.insert(show_id + 1 + message_res_id, choosable_message_resources.choosable_messages[chosen_message_res][message_res_id])
 	_check_messages()
 
-	
 
 func _check_messages() -> void:
 	for message_res_id in range(show_id, chat_resource.messages.size()):
@@ -110,3 +122,25 @@ func _check_messages() -> void:
 
 func _change_affection_value(additional_value: float) -> void:
 	_affection_progress_bar.value += additional_value
+
+
+func _show_dance_button() -> void:
+	if show_dance_button_tween:
+		show_dance_button_tween.kill()
+	if hide_dance_button_tween:
+		hide_dance_button_tween.kill()
+	
+	_dance_button.disabled = false
+	show_dance_button_tween = get_tree().create_tween()
+	show_dance_button_tween.tween_property(_dance_button, "modulate:a", 1.0, 2.0)
+
+
+func _hide_dance_button() -> void:
+	if show_dance_button_tween:
+		show_dance_button_tween.kill()
+	if hide_dance_button_tween:
+		hide_dance_button_tween.kill()
+	
+	_dance_button.disabled = true
+	show_dance_button_tween = get_tree().create_tween()
+	show_dance_button_tween.tween_property(_dance_button, "modulate:a", 0.0, 2.0)

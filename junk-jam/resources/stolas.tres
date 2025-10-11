@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dmcroek6ugvc3" path="res://assets/experimental/basic_person.svg" id="1_1pxb7"]
 [ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_vqk1q"]
 [ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_74cgk"]
-[ext_resource type="Script" uid="uid://be1cusu71bwlp" path="res://resources/scripts/choosable_message_resource.gd" id="2_alrvi"]
+[ext_resource type="Script" path="res://resources/scripts/choosable_message_resource.gd" id="2_alrvi"]
 [ext_resource type="Texture2D" uid="uid://cks6hvnrsl0n7" path="res://assets/experimental/search_area_sprite.svg" id="5_nkxs0"]
 
 [sub_resource type="Resource" id="Resource_alrvi"]
@@ -139,6 +139,8 @@ script = ExtResource("1_vqk1q")
 message_owner = 1
 show = true
 text = "Simple resource for me"
+show_dance_button = true
+dance_scene_uid = "uid://d0gijo6b3l7fq"
 metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 
 [resource]
@@ -147,4 +149,3 @@ texture = ExtResource("5_nkxs0")
 icon_texture = ExtResource("1_1pxb7")
 name = "Столас"
 messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_5wu6q"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq"), SubResource("Resource_yxs7g")])
-metadata/_custom_type_script = "uid://bu81qh845kbe4"
