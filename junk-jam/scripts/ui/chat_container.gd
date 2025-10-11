@@ -19,7 +19,7 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	_texture_rect.texture = chat_resource.texture
+	_texture_rect.texture = chat_resource.icon_texture
 	_name_label.text = chat_resource.name
 	
 	_last_meassage.text = chat_resource.messages[-1].text

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8c0u20hjvxn2"]
 
-[ext_resource type="Texture2D" uid="uid://dmcroek6ugvc3" path="res://assets/basic_person.svg" id="1_4tfpr"]
+[ext_resource type="Texture2D" uid="uid://dmcroek6ugvc3" path="res://assets/experimental/basic_person.svg" id="1_4tfpr"]
 [ext_resource type="Script" uid="uid://5ynxyk08oy4q" path="res://scripts/ui/chat_container.gd" id="1_c5ua4"]
 
 [node name="ChatContainer" type="PanelContainer"]

@@ -9,12 +9,19 @@ signal destroy_chosen
 
 @onready var _person_messages: VBoxContainer = %PersonMessages
 @onready var _my_messages: VBoxContainer = %MyMessages
+@onready var _affection_label: RichTextLabel = %AffectionLabel
+@onready var _affection_progress_bar: TextureProgressBar = %AffectionProgressBar
+@onready var _person_texture: TextureRect = %PersonTexture
 
 
 var show_id: int = 0
 
 
 func _ready() -> void:
+	_affection_progress_bar.value = chat_resource.affection
+	_affection_label.text = "Привязанность: %s" % chat_resource.affection
+	_person_texture.texture = chat_resource.texture
+	
 	_check_messages()
 
 
@@ -99,3 +106,7 @@ func _check_messages() -> void:
 				prepare_and_create_message_label(chat_resource.messages[message_res_id])
 		else:
 			prepare_and_create_message_label(chat_resource.messages[message_res_id])
+
+
+func _change_affection_value(additional_value: float) -> void:
+	_affection_progress_bar.value += additional_value

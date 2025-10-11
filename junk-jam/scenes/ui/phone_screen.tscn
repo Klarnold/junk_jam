@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc635k1yyqd12"]
+[gd_scene load_steps=10 format=3 uid="uid://bc635k1yyqd12"]
 
 [ext_resource type="Script" uid="uid://du1m80ssxvti8" path="res://scripts/ui/phone_screen.gd" id="1_8put0"]
-[ext_resource type="Texture2D" uid="uid://ckrb1p0c5nm4m" path="res://assets/telephone_screen.svg" id="1_piby1"]
+[ext_resource type="Texture2D" uid="uid://bj8lekow7nfqe" path="res://assets/phone.svg" id="2_8put0"]
 [ext_resource type="Script" uid="uid://ba6xgm1loun3q" path="res://scripts/ui/DEBUG_SCROLL_SCRIPT.gd" id="2_b5ovn"]
-[ext_resource type="Texture2D" uid="uid://dnfbf5vvfi4nj" path="res://assets/messages_icon.svg" id="2_m83bn"]
+[ext_resource type="Texture2D" uid="uid://lasg3rubqm6b" path="res://assets/collection.svg" id="4_ir4bj"]
+[ext_resource type="Texture2D" uid="uid://moef1wob3pav" path="res://assets/shop.svg" id="5_d71uj"]
+[ext_resource type="Texture2D" uid="uid://b44qrskf5f1k" path="res://assets/chat.svg" id="6_mejre"]
+[ext_resource type="Texture2D" uid="uid://m5txxsjxygls" path="res://assets/profile.svg" id="7_hftam"]
+[ext_resource type="Texture2D" uid="uid://clnq36gbonjn8" path="res://assets/setting.svg" id="8_gpyty"]
+[ext_resource type="Texture2D" uid="uid://c10vof0jp1w4t" path="res://assets/main button.svg" id="9_d71uj"]
 
 [node name="PhoneScreen" type="Control"]
 layout_mode = 3
@@ -26,12 +31,14 @@ theme_override_constants/margin_right = 192
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_piby1")
+texture = ExtResource("2_8put0")
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 32
@@ -48,9 +55,9 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.97
-theme_override_constants/margin_left = 32
+theme_override_constants/margin_left = 192
 theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_right = 192
 
 [node name="CurrentScreenScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -64,50 +71,62 @@ script = ExtResource("2_b5ovn")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomTab"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 48
 
-[node name="CollectionButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+[node name="CollectionButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_m83bn")
-stretch_mode = 5
+texture_normal = ExtResource("4_ir4bj")
+stretch_mode = 0
 
-[node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+[node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_m83bn")
-stretch_mode = 5
+texture_normal = ExtResource("5_d71uj")
+stretch_mode = 0
 
-[node name="ChatsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+[node name="ChatsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_m83bn")
-stretch_mode = 5
+texture_normal = ExtResource("6_mejre")
+stretch_mode = 0
 
-[node name="ProfilePageButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+[node name="ProfilePageButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_m83bn")
-stretch_mode = 5
+texture_normal = ExtResource("7_hftam")
+stretch_mode = 0
 
-[node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/MarginContainer/HBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_m83bn")
-stretch_mode = 5
+texture_normal = ExtResource("8_gpyty")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_d71uj")
+stretch_mode = 0

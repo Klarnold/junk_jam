@@ -53,7 +53,7 @@ func _reset_top_tab() -> void:
 
 func _create_and_redirect_to_chat(chat_res: ChatResource) -> void:
 	_reset_scroll_container()
-	_prepare_ane_set_tob_tab_to_chat(chat_res)
+	#_prepare_ane_set_tob_tab_to_chat(chat_res)
 	var chat_screen: ChatScreen = preload("res://scenes/ui/chat_screen.tscn").instantiate()
 	
 	chat_screen.chat_resource = chat_res
@@ -61,9 +61,9 @@ func _create_and_redirect_to_chat(chat_res: ChatResource) -> void:
 	_current_screen_scroll.add_child(chat_screen)
 
 
-func _prepare_ane_set_tob_tab_to_chat(chat_res: ChatResource) -> void:
-	_reset_top_tab()
-	var chat_top_tab: ChatTopTab = preload("res://scenes/ui/chat_top_tab.tscn").instantiate()
-	
-	chat_top_tab.chat_res = chat_res
-	_top_tab.add_child(chat_top_tab)
+#func _prepare_ane_set_tob_tab_to_chat(chat_res: ChatResource) -> void:
+	#_reset_top_tab()
+	#var chat_top_tab: ChatTopTab = preload("res://scenes/ui/chat_top_tab.tscn").instantiate()
+	#
+	#chat_top_tab.chat_res = chat_res
+	#_top_tab.add_child(chat_top_tab)
