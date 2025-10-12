@@ -11,6 +11,7 @@ script = ExtResource("1_vqk1q")
 message_owner = 1
 show = true
 text = "Здарова, бес-толочь!"
+affection_change = 20.0
 metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 
 [sub_resource type="Resource" id="Resource_5wu6q"]
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 script = ExtResource("1_vqk1q")
 show = true
 text = "Ты хоть сам понял, что ты высрал?"
+affection_change = -20.0
 metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 
 [sub_resource type="Resource" id="Resource_nkxs0"]

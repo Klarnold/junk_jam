@@ -5,6 +5,12 @@ class_name SettingsScreen extends Control
 @onready var _sound_slider: HSlider = %SoundSlider
 @onready var _main_menu_button: Button = %MainMenuButton
 @onready var _exit_button: Button = %ExitButton
+@onready var _music_container: HBoxContainer = %MusicContainer
+@onready var _sound_container: HBoxContainer = %SoundContainer
+@onready var children: Array[Control] = [
+	_music_container, _sound_container, _music_slider,
+	_sound_slider, _main_menu_button, _exit_button
+]
 
 
 func _ready() -> void:
@@ -12,6 +18,11 @@ func _ready() -> void:
 	_sound_slider.value_changed.connect(_set_sound_db)
 	
 	_exit_button.pressed.connect(get_tree().quit)
+	
+	for child in children:
+		var tween: Tween = create_tween()
+		tween.tween_property(child, "modulate:a", 1.0, 0.5)
+		await get_tree().create_timer(0.1).timeout
 
 
 func _set_music_db(music_value: float) -> void:

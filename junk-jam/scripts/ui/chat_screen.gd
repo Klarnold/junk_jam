@@ -18,7 +18,7 @@ signal destroy_chosen
 var show_id: int = 0
 var show_dance_button_tween: Tween
 var hide_dance_button_tween: Tween
-
+var affection_animation_tween: Tween
 
 func _ready() -> void:
 	chat_resource.affection_changed.connect(_on_affection_changed)
@@ -43,11 +43,15 @@ func prepare_and_create_message_label(message_resource: MessageResource) -> void
 		_my_messages.add_child(message_label)
 		var additional_label = message_label.duplicate()
 		additional_label.modulate.a = 0
+		additional_label.message_resource = message_resource.duplicate()
+		additional_label.message_resource.show = false
 		_person_messages.add_child(additional_label)
 	else:
 		_person_messages.add_child(message_label)
 		var additional_label = message_label.duplicate()
 		additional_label.modulate.a = 0
+		additional_label.message_resource = message_resource.duplicate()
+		additional_label.message_resource.show = false
 		_my_messages.add_child(additional_label)
 	
 	if message_resource.show_dance_button and not message_resource.hide_dance_button:
@@ -83,12 +87,16 @@ func prepare_and_create_choosable_message_labels(choosable_message_resources: Ch
 			var additional_label = choosable_message_label.duplicate()
 			destroy_chosen.connect(additional_label.queue_free)
 			additional_label.modulate.a = 0
+			additional_label.message_resource = choosable_message_resource.duplicate()
+			additional_label.message_resource.show = false
 			_person_messages.add_child(additional_label)
 		else:
 			_person_messages.add_child(choosable_message_label)
 			var additional_label = choosable_message_label.duplicate()
 			destroy_chosen.connect(additional_label.queue_free)
 			additional_label.modulate.a = 0
+			additional_label.message_resource = choosable_message_resource.duplicate()
+			additional_label.message_resource.show = false
 			_my_messages.add_child(additional_label)
 
 
@@ -102,7 +110,6 @@ func _on_chosen_message_label(chosen_message_res: MessageResource, choosable_mes
 		#print(message_resource)
 		#chat_resource.messages.append(message_resource)
 	for message_res_id in choosable_message_resources.choosable_messages[chosen_message_res].size(): # rework of adding messages to hte screen
-		print(message_res_id)
 		chat_resource.messages.insert(show_id + 1 + message_res_id, choosable_message_resources.choosable_messages[chosen_message_res][message_res_id])
 	_check_messages()
 
@@ -122,6 +129,8 @@ func _check_messages() -> void:
 				prepare_and_create_message_label(chat_resource.messages[message_res_id])
 		else:
 			prepare_and_create_message_label(chat_resource.messages[message_res_id])
+		
+		await get_tree().create_timer(0.05).timeout
 
 
 func _change_affection_value(additional_value: float) -> void:
@@ -151,5 +160,17 @@ func _hide_dance_button() -> void:
 
 
 func _on_affection_changed(new_affection_value: float) -> void:
-	_affection_progress_bar.value = new_affection_value
-	_affection_label.text = "Привязанность: %s" % new_affection_value
+	if affection_animation_tween:
+		affection_animation_tween.kill()
+	
+	affection_animation_tween = create_tween().set_parallel()
+	
+	affection_animation_tween.tween_property(_affection_progress_bar, "value", new_affection_value, abs(_affection_progress_bar.value - new_affection_value) * 0.08)
+	affection_animation_tween.tween_method(_affection_animation, 0.0, 1.0, abs(_affection_progress_bar.value - new_affection_value) * 0.08)
+	
+	#_affection_progress_bar.value = new_affection_value
+	#_affection_label.text = "Привязанность: %s" % new_affection_value
+
+
+func _affection_animation(_delta: float) -> void:
+	_affection_label.text = "Привязанность: %s" % _affection_progress_bar.value

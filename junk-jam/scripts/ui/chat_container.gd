@@ -19,7 +19,17 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+	
 	_texture_rect.texture = chat_resource.icon_texture
 	_name_label.text = chat_resource.name
 	
 	_last_meassage.text = chat_resource.messages[-1].text
+
+
+func _on_mouse_entered() -> void:
+	add_theme_stylebox_override("panel", preload("uid://cqg50s0gl2xsi"))
+
+func _on_mouse_exited() -> void:
+	add_theme_stylebox_override("panel", preload("uid://cuhhe1ix0eiio"))

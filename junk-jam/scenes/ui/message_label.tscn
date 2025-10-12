@@ -15,6 +15,7 @@ corner_radius_bottom_left = 16
 
 [node name="MessageLabel" type="RichTextLabel"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 offset_right = 17.0
 offset_bottom = 39.0
 size_flags_horizontal = 0

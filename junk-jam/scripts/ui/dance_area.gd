@@ -7,6 +7,8 @@ signal released
 
 @export var main_area: bool = false
 @export var texture: Texture = preload("uid://3smmy2u8b5q1") # basic_dance_area.aseprite
+@export var flip_h: bool = false
+@export var flip_v: bool = false
 
 var inner_areas: Array[Area2D]
 
@@ -22,10 +24,12 @@ func _ready() -> void:
 	area_exited.connect(_on_area_exited)
 	
 	sprite_2d.texture = texture
+	
+	sprite_2d.flip_h = flip_h
+	sprite_2d.flip_v = flip_v
 
 
 func _on_pressed() -> void:
-	print("pressed")
 	for note in inner_areas:
 		if note is BasicNote:
 			note.pressed()
@@ -39,10 +43,8 @@ func _on_released() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is BasicNote:
-		print("area entered")
 		inner_areas.append(area)
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is BasicNote:
-		print("EXITED")
 		inner_areas.erase(area)
