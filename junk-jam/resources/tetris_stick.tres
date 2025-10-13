@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="ChatResource" load_steps=10 format=3 uid="uid://bvkeooaj7yxei"]
+[gd_resource type="Resource" script_class="ChatResource" load_steps=15 format=3 uid="uid://bvkeooaj7yxei"]
 
 [ext_resource type="Texture2D" uid="uid://0moqx61f4kxw" path="res://assets/icons/bar.png" id="1_ba72j"]
+[ext_resource type="Texture2D" uid="uid://dh0o7echxwcrr" path="res://assets/ladies/tetris_bg.png" id="1_bejt8"]
 [ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_dali0"]
 [ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_brw5p"]
+[ext_resource type="Texture2D" uid="uid://crhs8e43g3trj" path="res://assets/ladies/tetris_bg_happy.png" id="2_nyqsl"]
+[ext_resource type="Texture2D" uid="uid://dsn6p7co02ilu" path="res://assets/ladies/tetris_bg_angry.png" id="3_n1j8h"]
 [ext_resource type="Texture2D" uid="uid://tap20lwfydvj" path="res://assets/ladies/tetris.png" id="4_nglfq"]
+[ext_resource type="Texture2D" uid="uid://byxqtdgf7jh7i" path="res://assets/ladies/tetris_happy.png" id="5_6rjol"]
+[ext_resource type="Texture2D" uid="uid://lou84cbk7wbh" path="res://assets/ladies/tetris_angry.png" id="6_eu0bx"]
 
 [sub_resource type="Resource" id="Resource_brw5p"]
 script = ExtResource("1_dali0")
@@ -43,6 +48,16 @@ metadata/_custom_type_script = "uid://e5i2e7ahd1iy"
 script = ExtResource("2_brw5p")
 texture = ExtResource("4_nglfq")
 icon_texture = ExtResource("1_ba72j")
+emotions = Dictionary[int, Texture]({
+0: ExtResource("4_nglfq"),
+1: ExtResource("5_6rjol"),
+2: ExtResource("6_eu0bx")
+})
+background_textures = Dictionary[int, Texture]({
+0: ExtResource("1_bejt8"),
+1: ExtResource("2_nyqsl"),
+2: ExtResource("3_n1j8h")
+})
 name = "Тетрисная палка"
 messages = Array[ExtResource("1_dali0")]([SubResource("Resource_brw5p"), SubResource("Resource_ba72j"), SubResource("Resource_nglfq"), SubResource("Resource_l5y1q"), SubResource("Resource_eo2gh")])
 metadata/_custom_type_script = "uid://bu81qh845kbe4"

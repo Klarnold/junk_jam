@@ -13,6 +13,9 @@ class_name PhoneScreen extends Control
 func _ready() -> void:
 	_chats_button.pressed.connect(_on_chat_button_pressed)
 	_settings_button.pressed.connect(_on_settings_button_pressed)
+	_collection_button.pressed.connect(_on_collection_button_pressed)
+	_shop_button.pressed.connect(_on_shop_button_pressed)
+	_profile_page_button.pressed.connect(_on_profile_page_button)
 
 
 func _on_chat_button_pressed() -> void:
@@ -59,6 +62,18 @@ func _create_and_redirect_to_chat(chat_res: ChatResource) -> void:
 	chat_screen.chat_resource = chat_res
 	
 	_current_screen_scroll.add_child(chat_screen)
+
+
+func _on_collection_button_pressed() -> void:
+	pass
+
+
+func _on_shop_button_pressed() -> void:
+	pass
+
+
+func _on_profile_page_button() -> void:
+	pass
 
 
 #func _prepare_ane_set_tob_tab_to_chat(chat_res: ChatResource) -> void:

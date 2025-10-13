@@ -27,6 +27,8 @@ func _ready() -> void:
 	_affection_label.text = "Привязанность: %s" % chat_resource.affection
 	_person_texture.texture = chat_resource.texture
 	
+	set_person_texture()
+	
 	_dance_button.chat_res = chat_resource
 	
 	_check_messages()
@@ -38,6 +40,7 @@ func prepare_and_create_message_label(message_resource: MessageResource) -> void
 	
 	chat_resource.affection += message_resource.affection_change # needs to be to concretesize affection of character
 																# and make choices to have influence
+	message_resource.affection_change = 0.0
 	
 	if message_resource.message_owner == MessageLabel.MessageOwner.ME:
 		_my_messages.add_child(message_label)
@@ -174,3 +177,12 @@ func _on_affection_changed(new_affection_value: float) -> void:
 
 func _affection_animation(_delta: float) -> void:
 	_affection_label.text = "Привязанность: %s" % _affection_progress_bar.value
+
+
+func set_person_texture() -> void:
+	if chat_resource.affection < -30:
+		_person_texture.texture = chat_resource.background_textures[Globals.EmotionType.ANGRY]
+	elif chat_resource.affection > 30:
+		_person_texture.texture = chat_resource.background_textures[Globals.EmotionType.HAPPY]
+	else:
+		_person_texture.texture = chat_resource.background_textures[Globals.EmotionType.NEUTRAL]

@@ -5,6 +5,8 @@ signal affection_changed(affection_value)
 #TODO chat resource
 @export var texture: Texture
 @export var icon_texture: Texture
+@export var emotions: Dictionary[Globals.EmotionType, Texture]
+@export var background_textures: Dictionary[Globals.EmotionType, Texture]
 @export var name: String
 @export var last_active: String = "now"
 @export_range(-100.0, 100.0, 0.1) var affection: float = 0.0:

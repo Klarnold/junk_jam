@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="ChatResource" load_steps=32 format=3 uid="uid://2uhffho43fvf"]
+[gd_resource type="Resource" script_class="ChatResource" load_steps=37 format=3 uid="uid://2uhffho43fvf"]
 
 [ext_resource type="Texture2D" uid="uid://cf13h8ikhhx7o" path="res://assets/icons/stol.png" id="1_1pxb7"]
+[ext_resource type="Texture2D" uid="uid://dqgbvim75bmoq" path="res://assets/ladies/stolas_bg.png" id="1_acy3j"]
 [ext_resource type="Script" uid="uid://e5i2e7ahd1iy" path="res://resources/scripts/message_resource.gd" id="1_vqk1q"]
+[ext_resource type="Texture2D" uid="uid://cs50xvsyndeyg" path="res://assets/ladies/stolas_happy.png" id="2_7l3pq"]
 [ext_resource type="Script" uid="uid://bu81qh845kbe4" path="res://resources/scripts/chat_resource.gd" id="2_74cgk"]
 [ext_resource type="Script" path="res://resources/scripts/choosable_message_resource.gd" id="2_alrvi"]
+[ext_resource type="Texture2D" uid="uid://cndh2r8tne0r" path="res://assets/ladies/stolas_bg_happy.png" id="2_xf4ir"]
+[ext_resource type="Texture2D" uid="uid://pun13jsohrk2" path="res://assets/ladies/stolas_bg_angry.png" id="3_3dsim"]
+[ext_resource type="Texture2D" uid="uid://vr0h0jqun4n1" path="res://assets/ladies/stolas_angry.png" id="3_jtxjb"]
 [ext_resource type="Texture2D" uid="uid://0fq2vh7v8wwg" path="res://assets/ladies/stolas.png" id="5_nkxs0"]
 
 [sub_resource type="Resource" id="Resource_alrvi"]
@@ -194,5 +199,15 @@ metadata/_custom_type_script = "uid://be1cusu71bwlp"
 script = ExtResource("2_74cgk")
 texture = ExtResource("5_nkxs0")
 icon_texture = ExtResource("1_1pxb7")
+emotions = Dictionary[int, Texture]({
+0: ExtResource("5_nkxs0"),
+1: ExtResource("2_7l3pq"),
+2: ExtResource("3_jtxjb")
+})
+background_textures = Dictionary[int, Texture]({
+0: ExtResource("1_acy3j"),
+1: ExtResource("2_xf4ir"),
+2: ExtResource("3_3dsim")
+})
 name = "Столас"
 messages = Array[ExtResource("1_vqk1q")]([SubResource("Resource_alrvi"), SubResource("Resource_5wu6q"), SubResource("Resource_1pxb7"), SubResource("Resource_nkxs0"), SubResource("Resource_7l3pq"), SubResource("Resource_yxs7g"), SubResource("Resource_lnm4c"), SubResource("Resource_tp2lq")])
