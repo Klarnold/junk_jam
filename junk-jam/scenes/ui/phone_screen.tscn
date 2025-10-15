@@ -146,6 +146,7 @@ texture_hover = ExtResource("18_h4x7v")
 stretch_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("9_d71uj")

@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="junk_jam"
-run/main_scene="uid://d0gijo6b3l7fq"
+run/main_scene="uid://b5orovdoi8l2p"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/image="uid://cv6e7r35sd0a8"
 config/icon="res://icon.svg"
 
 [aseprite_importers]
@@ -23,6 +24,7 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 
 Globals="*res://globals/Globals.gd"
 Signals="*res://globals/Signals.gd"
+GlobalSfxPlayer="*res://globals/global_sfx_player.tscn"
 
 [display]
 

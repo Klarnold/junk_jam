@@ -21,15 +21,17 @@ func _ready() -> void:
 
 
 func _on_chat_button_pressed() -> void:
+	Signals.play_ui_sfx.emit()
+	
 	_reset_scroll_container()
 	_reset_top_tab()
 	
 	var chats_screen: ChatsScreen = preload("res://scenes/ui/chats_screen.tscn").instantiate()
 	
 	chats_screen.chats_resources =[
-		preload("res://resources/dostoevsky_chat_resource.tres"),
-		preload("res://resources/tetris_stick.tres"),
-		preload("res://resources/stolas.tres")
+		preload("uid://cqqh7aoaj5a6m"), # dostoevsky_chat_resource
+		preload("uid://bvkeooaj7yxei"), # tetris_stick.tres
+		preload("uid://dl0kq55xvmalv") # stolas_main.tres
 	]
 	
 	_current_screen_scroll.add_child(chats_screen)
@@ -38,6 +40,8 @@ func _on_chat_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
+	Signals.play_ui_sfx.emit()
+	
 	_reset_scroll_container()
 	_reset_top_tab()
 	
@@ -67,6 +71,8 @@ func _create_and_redirect_to_chat(chat_res: ChatResource) -> void:
 
 
 func _on_collection_button_pressed() -> void:
+	Signals.play_ui_sfx.emit()
+	
 	_reset_scroll_container()
 	var collsection_screen: Control = preload("uid://cj4npcefflne0").instantiate() #collection_screen.tscn
 	
@@ -74,6 +80,8 @@ func _on_collection_button_pressed() -> void:
 
 
 func _on_shop_button_pressed() -> void:
+	Signals.play_ui_sfx.emit()
+	
 	_reset_scroll_container()
 	var shop_screen: Control = preload("uid://7w4k2mooum83").instantiate() # shop_screen.tscn
 	
@@ -81,6 +89,8 @@ func _on_shop_button_pressed() -> void:
 
 
 func _on_profile_page_button() -> void:
+	Signals.play_ui_sfx.emit()
+	
 	_reset_scroll_container()
 	var my_profile_screen: Control = preload("uid://cibhf33s337at").instantiate() # my_page_screen.tscn
 	

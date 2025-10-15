@@ -15,6 +15,7 @@ signal call_to_redirect_to_chat(chat_res: ChatResource)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		Signals.play_ui_sfx.emit()
 		call_to_redirect_to_chat.emit(chat_resource)
 
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 	
 	_texture_rect.texture = chat_resource.icon_texture
 	_name_label.text = chat_resource.name
+	_last_seen_label.text = chat_resource.last_active
 	
 	for message_idx in chat_resource.messages.size():
 		if not chat_resource.messages[message_idx].show:
@@ -32,7 +34,6 @@ func _ready() -> void:
 	
 	if _last_meassage.text == "":
 		_last_meassage.text = chat_resource.messages[-1].text
-	
 
 
 func _on_mouse_entered() -> void:

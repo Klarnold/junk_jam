@@ -163,16 +163,17 @@ func _hide_dance_button() -> void:
 
 
 func _on_affection_changed(new_affection_value: float) -> void:
+	if new_affection_value == _affection_progress_bar.value:
+		return
+	
 	if affection_animation_tween:
 		affection_animation_tween.kill()
 	
 	affection_animation_tween = create_tween().set_parallel()
 	
+	print(abs(_affection_progress_bar.value - new_affection_value) * 0.08)
 	affection_animation_tween.tween_property(_affection_progress_bar, "value", new_affection_value, abs(_affection_progress_bar.value - new_affection_value) * 0.08)
 	affection_animation_tween.tween_method(_affection_animation, 0.0, 1.0, abs(_affection_progress_bar.value - new_affection_value) * 0.08)
-	
-	#_affection_progress_bar.value = new_affection_value
-	#_affection_label.text = "Привязанность: %s" % new_affection_value
 
 
 func _affection_animation(_delta: float) -> void:
