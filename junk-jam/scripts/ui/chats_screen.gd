@@ -33,4 +33,4 @@ func _ready() -> void:
 		await get_tree().physics_frame
 		await get_tree().physics_frame
 		
-		print(chat_container.global_position)
+		#print(chat_container.global_position)

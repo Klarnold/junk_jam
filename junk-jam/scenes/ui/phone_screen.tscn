@@ -1,14 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc635k1yyqd12"]
+[gd_scene load_steps=20 format=3 uid="uid://bc635k1yyqd12"]
 
 [ext_resource type="Script" uid="uid://du1m80ssxvti8" path="res://scripts/ui/phone_screen.gd" id="1_8put0"]
 [ext_resource type="Texture2D" uid="uid://bj8lekow7nfqe" path="res://assets/phone.svg" id="2_8put0"]
 [ext_resource type="Script" uid="uid://ba6xgm1loun3q" path="res://scripts/ui/DEBUG_SCROLL_SCRIPT.gd" id="2_b5ovn"]
 [ext_resource type="Texture2D" uid="uid://lasg3rubqm6b" path="res://assets/collection.svg" id="4_ir4bj"]
 [ext_resource type="Texture2D" uid="uid://moef1wob3pav" path="res://assets/shop.svg" id="5_d71uj"]
+[ext_resource type="Texture2D" uid="uid://cy4r1837jdwtc" path="res://assets/buttons/collection_press.svg" id="5_t168g"]
 [ext_resource type="Texture2D" uid="uid://b44qrskf5f1k" path="res://assets/chat.svg" id="6_mejre"]
+[ext_resource type="Texture2D" uid="uid://d3jqx0tmasjl5" path="res://assets/buttons/collection_hover.svg" id="6_wndjt"]
 [ext_resource type="Texture2D" uid="uid://m5txxsjxygls" path="res://assets/profile.svg" id="7_hftam"]
+[ext_resource type="Texture2D" uid="uid://d3jjhppblh1dr" path="res://assets/buttons/shop_press.svg" id="8_8rp3t"]
 [ext_resource type="Texture2D" uid="uid://clnq36gbonjn8" path="res://assets/setting.svg" id="8_gpyty"]
+[ext_resource type="Texture2D" uid="uid://cv3h76joovo87" path="res://assets/buttons/shop_hover.svg" id="9_bbcwi"]
 [ext_resource type="Texture2D" uid="uid://c10vof0jp1w4t" path="res://assets/main button.svg" id="9_d71uj"]
+[ext_resource type="Texture2D" uid="uid://dv1vbytyd85lo" path="res://assets/buttons/chat_press.svg" id="11_jx6bu"]
+[ext_resource type="Texture2D" uid="uid://cclut40am0535" path="res://assets/buttons/chat_hover.svg" id="12_nua67"]
+[ext_resource type="Texture2D" uid="uid://bq4l3hm5sc4w8" path="res://assets/buttons/profile_press.svg" id="14_syj0i"]
+[ext_resource type="Texture2D" uid="uid://cnicisptrpdaj" path="res://assets/buttons/profile_hover.svg" id="15_2x46b"]
+[ext_resource type="Texture2D" uid="uid://b1v67vmuk6sgl" path="res://assets/buttons/setting_press.svg" id="17_e2p7c"]
+[ext_resource type="Texture2D" uid="uid://rq0bpdkfhgbh" path="res://assets/buttons/setting_hover.svg" id="18_h4x7v"]
 
 [node name="PhoneScreen" type="Control"]
 layout_mode = 3
@@ -95,6 +105,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("4_ir4bj")
+texture_pressed = ExtResource("5_t168g")
+texture_hover = ExtResource("6_wndjt")
 stretch_mode = 0
 
 [node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -102,6 +114,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("5_d71uj")
+texture_pressed = ExtResource("8_8rp3t")
+texture_hover = ExtResource("9_bbcwi")
 stretch_mode = 0
 
 [node name="ChatsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -109,6 +123,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("6_mejre")
+texture_pressed = ExtResource("11_jx6bu")
+texture_hover = ExtResource("12_nua67")
 stretch_mode = 0
 
 [node name="ProfilePageButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -116,6 +132,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("7_hftam")
+texture_pressed = ExtResource("14_syj0i")
+texture_hover = ExtResource("15_2x46b")
 stretch_mode = 0
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -123,6 +141,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("8_gpyty")
+texture_pressed = ExtResource("17_e2p7c")
+texture_hover = ExtResource("18_h4x7v")
 stretch_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomTab/VBoxContainer"]

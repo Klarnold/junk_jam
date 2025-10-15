@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="junk_jam"
-run/main_scene="uid://fmrhwal5e15q"
+run/main_scene="uid://d0gijo6b3l7fq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

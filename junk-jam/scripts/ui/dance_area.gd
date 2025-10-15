@@ -10,6 +10,7 @@ signal released
 @export var flip_h: bool = false
 @export var flip_v: bool = false
 
+
 var inner_areas: Array[Area2D]
 
 
@@ -44,6 +45,7 @@ func _on_released() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is BasicNote:
 		inner_areas.append(area)
+
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is BasicNote:

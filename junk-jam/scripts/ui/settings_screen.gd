@@ -14,6 +14,8 @@ class_name SettingsScreen extends Control
 
 
 func _ready() -> void:
+	_prepare_sliders()
+	
 	_music_slider.value_changed.connect(_set_music_db)
 	_sound_slider.value_changed.connect(_set_sound_db)
 	
@@ -33,3 +35,11 @@ func _set_music_db(music_value: float) -> void:
 func _set_sound_db(sound_value: float) -> void:
 	var sound_db: float = linear_to_db(sound_value)
 	AudioServer.set_bus_volume_db(2, sound_db)
+
+
+func _prepare_sliders() -> void:
+	var music_value: float = db_to_linear(AudioServer.get_bus_volume_db(1))
+	var sfx_value: float = db_to_linear(AudioServer.get_bus_volume_db(2))
+	
+	_music_slider.value = music_value
+	_sound_slider.value = sfx_value

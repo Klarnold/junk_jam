@@ -25,7 +25,14 @@ func _ready() -> void:
 	_texture_rect.texture = chat_resource.icon_texture
 	_name_label.text = chat_resource.name
 	
-	_last_meassage.text = chat_resource.messages[-1].text
+	for message_idx in chat_resource.messages.size():
+		if not chat_resource.messages[message_idx].show:
+			_last_meassage.text = chat_resource.messages[message_idx - 1].text
+			break
+	
+	if _last_meassage.text == "":
+		_last_meassage.text = chat_resource.messages[-1].text
+	
 
 
 func _on_mouse_entered() -> void:

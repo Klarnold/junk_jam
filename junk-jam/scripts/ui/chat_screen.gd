@@ -176,7 +176,7 @@ func _on_affection_changed(new_affection_value: float) -> void:
 
 
 func _affection_animation(_delta: float) -> void:
-	_affection_label.text = "Привязанность: %s" % _affection_progress_bar.value
+	_affection_label.text = "Привязанность: %s" % snappedf(_affection_progress_bar.value, 0.1)
 
 
 func set_person_texture() -> void:

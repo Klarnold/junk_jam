@@ -16,6 +16,8 @@ func _ready() -> void:
 	_collection_button.pressed.connect(_on_collection_button_pressed)
 	_shop_button.pressed.connect(_on_shop_button_pressed)
 	_profile_page_button.pressed.connect(_on_profile_page_button)
+	
+	_on_settings_button_pressed()
 
 
 func _on_chat_button_pressed() -> void:
@@ -65,15 +67,24 @@ func _create_and_redirect_to_chat(chat_res: ChatResource) -> void:
 
 
 func _on_collection_button_pressed() -> void:
-	pass
+	_reset_scroll_container()
+	var collsection_screen: Control = preload("uid://cj4npcefflne0").instantiate() #collection_screen.tscn
+	
+	_current_screen_scroll.add_child(collsection_screen)
 
 
 func _on_shop_button_pressed() -> void:
-	pass
+	_reset_scroll_container()
+	var shop_screen: Control = preload("uid://7w4k2mooum83").instantiate() # shop_screen.tscn
+	
+	_current_screen_scroll.add_child(shop_screen)
 
 
 func _on_profile_page_button() -> void:
-	pass
+	_reset_scroll_container()
+	var my_profile_screen: Control = preload("uid://cibhf33s337at").instantiate() # my_page_screen.tscn
+	
+	_current_screen_scroll.add_child(my_profile_screen)
 
 
 #func _prepare_ane_set_tob_tab_to_chat(chat_res: ChatResource) -> void:
